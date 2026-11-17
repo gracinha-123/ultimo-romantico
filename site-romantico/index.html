@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#fdeff1">
+<title>Para a minha princesa 💗</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💗</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,700;1,500&family=Great+Vibes&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --fundo: #fdeff1;
+    --vinho: #5b1230;
+    --rosa: #d96a8a;
+    --ouro: #a8742f;
+    --papel: #fffaf8;
+  }
+  * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    font-family: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+    font-size: 1.25rem;
+    color: var(--vinho);
+    background: radial-gradient(circle at 20% 0%, #fff6f7, var(--fundo) 55%, #f8dce2);
+    overflow-x: hidden;
+    padding: env(safe-area-inset-top) 0 env(safe-area-inset-bottom);
+  }
+  .script { font-family: "Great Vibes", "Brush Script MT", cursive; font-weight: 400; }
+  h1, h2, h3 { font-family: "Great Vibes", "Brush Script MT", cursive; font-weight: 400; line-height: 1.1; margin: 0 0 10px; }
+  h1 { font-size: clamp(3rem, 14vw, 5.4rem); }
+  h2 { font-size: clamp(2.4rem, 10vw, 3.6rem); color: var(--ouro); }
+  h3 { font-size: 2.4rem; color: var(--ouro); }
+  p { line-height: 1.5; margin: 0 0 14px; }
+  header, section, footer { position: relative; z-index: 1; }
+  section, footer { max-width: 920px; margin: 0 auto; padding: 48px 20px; text-align: center; }
+
+  /* pétalas */
+  .petala {
+    position: fixed; top: -30px; z-index: 0; pointer-events: none;
+    background: linear-gradient(135deg, #f4a0b5, #d96a8a); border-radius: 150% 0 150% 0; opacity: .8;
+    animation: cai linear forwards, balanca ease-in-out infinite alternate;
+  }
+  @keyframes cai { to { top: 108vh; } }
+  @keyframes balanca { from { transform: translateX(-24px) rotate(-30deg); } to { transform: translateX(24px) rotate(60deg); } }
+
+  /* moldura em arco */
+  .arco {
+    width: min(78vw, 300px); aspect-ratio: 3/4; margin: 0 auto; overflow: hidden;
+    border-radius: 999px 999px 20px 20px; border: 3px solid var(--ouro);
+    box-shadow: 0 0 0 8px var(--papel), 0 0 0 10px var(--rosa), 0 18px 40px rgba(91,18,48,.25);
+  }
+  .arco img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+  /* hero */
+  .hero { text-align: center; padding: 44px 20px 24px; max-width: 620px; margin: 0 auto; }
+  .data { font-style: italic; font-size: 1.2rem; color: var(--ouro); margin-bottom: 26px; }
+  .hero .arco { margin-bottom: 36px; animation: bate 2.4s ease-in-out infinite; }
+  @keyframes bate { 0%,100% { transform: scale(1); } 50% { transform: scale(1.025); } }
+  .hero h1 { margin-bottom: 14px; }
+  .sub { font-size: 1.4rem; font-style: italic; }
+  .seta { font-size: 2rem; color: var(--rosa); display: inline-block; animation: desce 1.6s ease-in-out infinite; }
+  @keyframes desce { 50% { transform: translateY(10px); } }
+
+  /* contador */
+  .tempo { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; max-width: 460px; margin: 22px auto 14px; }
+  .caixa { background: var(--papel); border: 1.5px solid var(--ouro); border-radius: 18px; padding: 12px 4px; }
+  .caixa b { display: block; font-size: 2.2rem; line-height: 1; }
+  .caixa span { font-size: 1rem; font-style: italic; }
+  .dias { font-size: 1.5rem; font-style: italic; }
+
+  /* declarações */
+  .bloco { display: flex; flex-direction: column; align-items: center; gap: 30px; padding: 44px 20px; max-width: 900px; margin: 0 auto; text-align: center; position: relative; z-index: 1; }
+  .bloco .texto p { font-size: 1.5rem; font-style: italic; }
+  @media (min-width: 760px) {
+    .bloco { flex-direction: row; gap: 56px; text-align: left; }
+    .bloco:nth-of-type(even) { flex-direction: row-reverse; }
+    .bloco .arco { flex: none; }
+  }
+
+  /* faixa de momentos */
+  .faixa { display: flex; gap: 22px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 18px 20px 28px; margin: 0 -20px; -webkit-overflow-scrolling: touch; }
+  .item { flex: 0 0 auto; width: 220px; scroll-snap-align: center; }
+  .item .arco { width: 100%; }
+  .item p { font-style: italic; font-size: 1.15rem; margin-top: 18px; }
+  .dica { font-size: 1rem; font-style: italic; opacity: .7; }
+
+  /* motivos e carta */
+  .cartao {
+    background: var(--papel); border: 1.5px solid var(--ouro); border-radius: 26px; max-width: 520px;
+    margin: 20px auto 24px; padding: 28px 22px; min-height: 130px; display: flex; align-items: center; justify-content: center;
+    font-size: 1.6rem; font-style: italic; box-shadow: 0 12px 30px rgba(91,18,48,.12);
+  }
+  .cartao.troca { animation: surge .5s ease-out; }
+  @keyframes surge { from { opacity: 0; transform: translateY(14px); } }
+  .carta { background: var(--papel); border: 1.5px solid var(--ouro); border-radius: 8px; max-width: 600px; margin: 24px auto 0; padding: 32px 24px; text-align: left; box-shadow: 0 14px 34px rgba(91,18,48,.14); }
+  .carta p { font-size: 1.35rem; font-style: italic; }
+  .assina { font-size: 2.4rem; text-align: right; color: var(--rosa); margin: 6px 0 0; }
+  .trecho { max-width: 520px; margin: 22px auto 0; padding: 18px 22px; border-left: 4px solid var(--rosa); background: var(--papel); border-radius: 0 14px 14px 0; font-size: 1.5rem; font-style: italic; text-align: left; }
+
+  button {
+    font-family: inherit; font-weight: 700; font-size: 1.3rem; color: #fff; background: var(--vinho);
+    border: 0; border-radius: 999px; padding: 14px 30px; min-height: 54px; cursor: pointer;
+    box-shadow: 0 8px 20px rgba(91,18,48,.3); transition: transform .12s;
+  }
+  button:active { transform: scale(.96); }
+  button:focus-visible { outline: 3px solid var(--rosa); outline-offset: 3px; }
+
+  .grande { font-size: 5rem; display: inline-block; animation: coracao 1.2s infinite; }
+  @keyframes coracao { 0%,100% { transform: scale(1); } 15% { transform: scale(1.2); } 30% { transform: scale(1); } 45% { transform: scale(1.14); } }
+  #msg { min-height: 7em; margin-top: 22px; }
+  .rodape { font-size: 1rem; opacity: .7; }
+  .chuva { position: fixed; top: -50px; pointer-events: none; z-index: 20; animation: cair linear forwards; }
+  @keyframes cair { to { transform: translateY(115vh) rotate(420deg); } }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+    .petala, .chuva { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <p class="data">Desde 19 de julho de 2024</p>
+  <div class="arco"><img src="fotos/11.jpg" alt="Júlia sorrindo, de óculos escuros" style="object-position:50% 35%"></div>
+  <h1>Para a minha princesa</h1>
+  <p class="sub">Minha princesa, fiz este cantinho só para te dizer, com calma, o quanto você é importante para mim.</p>
+  <div class="seta" aria-hidden="true">♡</div>
+</header>
+
+<section>
+  <h2>O nosso tempo juntos</h2>
+  <p class="dias" id="dias"></p>
+  <div class="tempo" id="tempo"></div>
+  <p>E eu quero que esse relógio nunca pare de contar.</p>
+</section>
+
+<div id="declaracoes"></div>
+
+<section>
+  <h2>Mais momentos nossos</h2>
+  <p class="dica">Arrasta para o lado, minha branquinha</p>
+  <div class="faixa" id="faixa"></div>
+</section>
+
+<section>
+  <h2>Motivos para te amar</h2>
+  <p>São tantos que eu nunca vou conseguir listar todos, mas toca no botão para ler alguns.</p>
+  <div class="cartao" id="motivo">Toque no botão e descubra um motivo 💗</div>
+  <button id="btnMotivo">Mais um motivo</button>
+</section>
+
+<section>
+  <h2>A nossa música</h2>
+  <p>Tem uma música que a gente adora, e toda vez que ela toca eu penso em você. Ela fala de um amor que fica, e é exatamente assim que eu te amo. Ela diz assim, "que o meu amorrr, não será passageiro, te amarei de janeiro a janeiroo, até o mundo acabarrrr ❤️❤️❤️"</p>
+  <!-- PARA ADICIONAR O TRECHO DA MÚSICA: escreva o trecho abaixo no lugar de COLE_AQUI_O_TRECHO
+       e apague a palavra "hidden" da linha. -->
+  <blockquote class="trecho" hidden>COLE_AQUI_O_TRECHO</blockquote>
+</section>
+
+<section>
+  <h2>Uma carta para você</h2>
+  <div class="carta">
+    <p>Minha princesa,</p>
+    <p>Desde o dia 19 de julho de 2024, a minha vida tem outra cor. Você chegou e tornou tudo mais leve, mais bonito e muito mais feliz.</p>
+    <p>Obrigado por cada abraço, por cada risada, por cada conversa e por cada dia em que você escolhe ficar do meu lado. Você é a minha paz e a minha alegria, a pessoa com quem eu quero dividir tudo.</p>
+    <p>Saiba que eu cuido de você e do nosso amor como a coisa mais preciosa que eu tenho, porque é.</p>
+    <p class="assina script">Seu, para sempre</p>
+  </div>
+</section>
+
+<footer>
+  <div class="grande" aria-hidden="true">💗</div>
+  <h2>Eu te amoooo mais que tudinho nesse mundo, minha princesa</h2>
+  <button id="btnFinal">Receber um beijinho 😘</button>
+  <div id="msg"></div>
+  <p class="rodape">Feito com todo o meu amor, para você.</p>
+</footer>
+
+<script>
+  const $ = (id) => document.getElementById(id);
+
+  // Pétalas caindo
+  function petalas(qtd, vida) {
+    for (let i = 0; i < qtd; i++) {
+      const p = document.createElement("span");
+      p.className = "petala";
+      const t = 10 + Math.random() * 12;
+      p.style.cssText = "left:" + Math.random() * 100 + "vw;width:" + t + "px;height:" + t * 1.3 + "px;" +
+        "animation-duration:" + (9 + Math.random() * 9) + "s," + (2 + Math.random() * 2) + "s;" +
+        "animation-delay:" + Math.random() * 6 + "s,0s";
+      document.body.appendChild(p);
+      setTimeout(() => p.remove(), vida);
+    }
+  }
+  petalas(innerWidth < 600 ? 10 : 18, 22000);
+  setInterval(() => petalas(innerWidth < 600 ? 4 : 7, 22000), 9000);
+
+  // Contador do namoro (início: 19/07/2024)
+  const inicio = new Date(2024, 6, 19, 0, 0, 0);
+  function atualiza() {
+    const a = inicio, b = new Date();
+    let y = b.getFullYear() - a.getFullYear(), m = b.getMonth() - a.getMonth(), d = b.getDate() - a.getDate();
+    let h = b.getHours(), mi = b.getMinutes(), s = b.getSeconds();
+    if (d < 0) { d += new Date(b.getFullYear(), b.getMonth(), 0).getDate(); m--; }
+    if (m < 0) { m += 12; y--; }
+    const total = Math.floor((b - a) / 864e5);
+    $("dias").textContent = total + " dias de amor, e contando";
+    const itens = [[y, "anos"], [m, "meses"], [d, "dias"], [h, "horas"], [mi, "minutos"], [s, "segundos"]];
+    $("tempo").innerHTML = itens.map((i) => '<div class="caixa"><b>' + i[0] + "</b><span>" + i[1] + "</span></div>").join("");
+  }
+  atualiza(); setInterval(atualiza, 1000);
+
+  // Declarações com fotos
+  const decl = [
+    ["11", "Meu sorriso favorito", "Minha princesa, o seu sorriso é a primeira coisa que eu procuro quando acordo e a última que eu lembro antes de dormir.", "Júlia sorrindo, de óculos escuros", "50% 35%"],
+    ["10", "Meu dia perfeito", "Você entra em qualquer lugar e o resto vira cenário. Eu poderia te olhar e te admirar o dia inteiro e ainda ia achar pouco.", "Júlia de vestido azul numa varanda", "50% 50%"],
+    ["05", "Brilho de estrela", "Você brilha em qualquer palco, mas o meu lugar preferido é aquele em que eu estou do seu lado.", "Júlia de braço erguido num show", "50% 30%"],
+    ["09", "Os momentos simples", "Minha branquinha, é nas coisas simples, numa mesa, numa conversa, num sorriso de canto, que eu descubro o quanto a vida fica melhor com você.", "Júlia sorrindo apoiada na mão", "50% 25%"],
+    ["01", "O meu lugar no mundo", "O seu abraço é o meu lugar favorito. Quando eu estou perto de você, o mundo fica em silêncio e vira rosa, pois o que eu mais amo é estar com você.", "Júlia sorrindo enquanto recebe um beijo na bochecha", "40% 40%"],
+    ["13", "Amar é leve com você", "Com você eu aprendi que te amar é a coisa mais fácil deste mundo, pois você é a mulher mais incrível e perfeita deste mundo todinho, o seu único defeito é você ser LINDA DEMAISSS AAAAAAAA", "Júlia e o namorado se abraçando num jardim", "50% 45%"],
+    ["12", "Minha parceira pra vida", "Obrigado por rir comigo, por me aguentar nos dias difíceis e por ser a minha companheira para tudo, você é o meu lugar preferido e o meu verdairo lar meu amor.", "Júlia e o namorado sorrindo, à noite", "50% 35%"]
+  ];
+  $("declaracoes").innerHTML = decl.map((d) =>
+    '<article class="bloco"><div class="arco"><img src="fotos/' + d[0] + '.jpg" alt="' + d[3] + '" loading="lazy" style="object-position:' + d[4] + '"></div>' +
+    '<div class="texto"><h3>' + d[1] + "</h3><p>" + d[2] + "</p></div></article>").join("");
+
+  // Faixa de momentos
+  const momentos = [
+    ["08", "Linda demais para caber em uma foto só.", "Júlia de batom vermelho com luz do pôr do sol"],
+    ["06", "Você olhou para trás e eu me apaixonei de novo.", "Júlia olhando por cima do ombro"],
+    ["07", "UMA TREMENDA DE UMA GOSTOSAAAA", "Júlia tirando uma selfie no espelho"],
+    ["04", "O seu jeitinho me desmonta por inteiro.", "Júlia de óculos escuros mostrando a língua"],
+    ["02", "Até as suas caretas são as minhas favoritas.", "Júlia de mãos na cabeça, sorrindo"],
+    ["03", "Borrada ou não, você está perfeitaaa", "Foto em movimento da Júlia"]
+  ];
+  $("faixa").innerHTML = momentos.map((m) =>
+    '<figure class="item" style="margin:0"><div class="arco"><img src="fotos/' + m[0] + '.jpg" alt="' + m[2] + '" loading="lazy"></div><p>' + m[1] + "</p></figure>").join("");
+
+  // Motivos
+  const motivos = [
+    "Porque o seu sorriso ilumina qualquer dia ruim.",
+    "Porque você sempre me escutou e me apoiou.",
+    "Porque você faz o simples ficar especial.",
+    "Porque o seu abraço é o meu lugar de paz.",
+    "Porque a sua risada é a coisa mais bonita de ouvir.",
+    "Porque você me faz querer ser melhor todos os dias.",
+    "Porque você é linda por dentro e por fora.",
+    "Porque do seu lado eu me sinto em casa.",
+    "Porque você transforma qualquer lugar em um lugar especial.",
+    "Porque você é você, e isso já é tudo para mim."
+  ];
+  let ordem = [], pos = 0;
+  const embaralha = () => { ordem = motivos.map((_, i) => i).sort(() => Math.random() - 0.5); pos = 0; };
+  embaralha();
+  $("btnMotivo").addEventListener("click", () => {
+    if (pos >= ordem.length) embaralha();
+    const c = $("motivo");
+    c.textContent = motivos[ordem[pos++]];
+    c.classList.remove("troca"); void c.offsetWidth; c.classList.add("troca");
+  });
+
+  // Final
+  $("btnFinal").addEventListener("click", () => {
+    $("msg").innerHTML = '<h2>Um beijo enorme, minha branquinha 💋</h2><p>Eu te amo hoje, amanhã e em todos os dias que ainda vamos viver juntos.</p>';
+    const emojis = ["❤️", "💖", "💗", "💕", "🌹", "🥰"];
+    for (let i = 0; i < 45; i++) {
+      const el = document.createElement("span");
+      el.className = "chuva";
+      el.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+      el.style.left = Math.random() * 100 + "vw";
+      el.style.fontSize = 20 + Math.random() * 26 + "px";
+      el.style.animationDuration = 2.5 + Math.random() * 3 + "s";
+      el.style.animationDelay = Math.random() * 1.6 + "s";
+      document.body.appendChild(el);
+      setTimeout(() => el.remove(), 9000);
+    }
+    if (navigator.vibrate) navigator.vibrate([60, 40, 60]);
+  });
+</script>
+</body>
+</html>
